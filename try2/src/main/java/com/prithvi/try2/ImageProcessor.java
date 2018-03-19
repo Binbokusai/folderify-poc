@@ -32,9 +32,9 @@ public class ImageProcessor implements Processor {
 			Metadata imageData=ImageMetadataReader.readMetadata(f/*new File(path[1])*/);
 			for (Directory directory:imageData.getDirectories()) {
 				if (directory.getName().split(" ")[0].toLowerCase().equals("exif")) {
-					++flag;
+					//++flag;
 					for (Tag tag : directory.getTags()) {
-						if (tag.getTagName().toLowerCase().equals("date/time")) {
+						if (tag.getTagName().split(" ")[0].toLowerCase().equals("date/time")) {
 						Date date =new Date(tag.getDescription());
 						String destination=f.getParent()+"\\Folderify\\"+date.getYear()+"\\"+date.getMonth()+"\\"+date.getDay()+"\\";
 						Path from=Paths.get(f.getAbsolutePath());
@@ -53,7 +53,7 @@ public class ImageProcessor implements Processor {
 						}
 				}
 				
-				else if(flag==0) {
+			/*	else if(flag==0) {
 					String destination=f.getParent()+"\\non-exif\\";
 					System.out.println("non-exif file -> "+f.getName());
 					Path from=Paths.get(f.getAbsolutePath());
@@ -68,7 +68,7 @@ public class ImageProcessor implements Processor {
 					Files.copy(from, new File(destination+f.getName()).toPath(), StandardCopyOption.REPLACE_EXISTING);
 					System.out.println(f.getPath()+"->"+destination);
 					Files.delete(from);
-				}
+				}*/
 			}
 		}catch(ImageProcessingException IE) {
 			System.out.println(f.getName()+" is not processable");
