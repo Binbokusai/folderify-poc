@@ -1,5 +1,7 @@
-Camel Router Spring Project
+FOLDERIFY-- A Camel Router Spring Project
 ===========================
+
+Currently only folders my phone's photos into intended folders. 
 
 To build this project use
 
