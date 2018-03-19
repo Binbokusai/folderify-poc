@@ -12,7 +12,7 @@
          (leaving them in place - see the 'noop' flag)
          then performs content based routing on the message using XPath -->
     <route>
-      <from uri="file:C:/Pictures/tirthanker?noop=true"/>
+      <from uri="file:../pics?noop=true"/>
       <!-- <choice>
         <when>
           <xpath>/person/city = 'London'</xpath>
