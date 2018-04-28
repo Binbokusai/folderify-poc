@@ -20,16 +20,15 @@ import com.drew.metadata.Tag;
 
 public class ImageProcessor implements Processor {
 
-	@Override  
-	public void process(Exchange exchange) throws Exception {
+
+public void process(Exchange exchange) throws Exception {
 		// TODO Auto-generated method stub
 		int exifFlag=0;
 		if (exchange!=null) {
-			/*String out=exchange.getIn().getBody(String.class);
-			String path[]=out.split("=");*/
+			
 			File f=exchange.getIn().getBody(File.class);
 			try {
-			Metadata imageData=ImageMetadataReader.readMetadata(f/*new File(path[1])*/);
+			Metadata imageData=ImageMetadataReader.readMetadata(f);
 			
 			for (Directory directory:imageData.getDirectories()) {
 				if (directory.getName().split(" ")[0].toLowerCase().equals("exif")) {
