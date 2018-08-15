@@ -9,7 +9,7 @@
 	<bean id="ImageProcessor" class="com.prithvi.processors.ImageProcessor"/>
   <camelContext xmlns="http://camel.apache.org/schema/spring">
     <route>
-      <from uri="file:.../pics?noop=true"/>
+      <from uri="file:C:/Users/Prithvijit Dasgupta/git/folderify-poc/pics?noop=true"/>
       <process ref="ImageProcessor"/>
     </route>
   </camelContext>
